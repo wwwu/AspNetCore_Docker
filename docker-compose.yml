@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+  helloworld:
+    image: helloworld:v2.0
+    build: #镜像构建
+      context: . #工作目录
+      dockerfile: HelloWorld/Dockerfile #Dockerfile位置
+    environment: #环境变量
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports: #端口映射
+      - "81:80"
+    container_name: netcore_helloworld
+    deploy:
+      restart_policy: #重启策略
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    networks: #指定network
+      - default
+      - newbridge
+      
+  mynginx:
+    image: mynginx:v2.0
+    build:
+      context: MyNginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "801:801"
+    container_name: mynginx
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    networks:
+      - default
+
+networks:
+  default: #定义一个docker中已存在的network
+    external: 
+      name: mybridge
+  newbridge: #新的network
+    #name: newbridge  #compose版本3.5开始才支持自定义名称
