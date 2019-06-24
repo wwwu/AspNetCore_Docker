@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   helloworld:
-    image: helloworld:v2.0
+    image: helloworld
     build: #镜像构建
       context: . #工作目录
       dockerfile: HelloWorld/Dockerfile #Dockerfile位置
@@ -21,7 +21,7 @@ services:
       - newbridge
       
   mynginx:
-    image: mynginx:v2.0
+    image: mynginx
     build:
       context: MyNginx
       dockerfile: Dockerfile
