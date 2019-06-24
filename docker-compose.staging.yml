@@ -3,17 +3,17 @@ version: '3.4'
 services:
   helloworld:
     image: ccr.ccs.tencentyun.com/wuuu/helloworld:latest
-    environment: #»·¾³±äÁ¿
+    environment: #ç¯å¢ƒå˜é‡
       - ASPNETCORE_ENVIRONMENT=Development
-    ports: #¶Ë¿ÚÓ³Éä
+    ports: #ç«¯å£æ˜ å°„
       - "81:80"
     container_name: netcore_helloworld
     deploy:
-      restart_policy: #ÖØÆô²ßÂÔ
+      restart_policy: #é‡å¯ç­–ç•¥
         condition: on-failure
         delay: 5s
         max_attempts: 3
-    networks: #Ö¸¶¨network
+    networks: #æŒ‡å®šnetwork
       - newbridge
       
   mynginx:
@@ -31,5 +31,5 @@ services:
       - newbridge
 
 networks:
-  newbridge: #ĞÂµÄnetwork
-    #name: newbridge  #compose°æ±¾3.5¿ªÊ¼²ÅÖ§³Ö×Ô¶¨ÒåÃû³Æ
+  newbridge: #æ–°çš„network
+    #name: newbridge  #composeç‰ˆæœ¬3.5å¼€å§‹æ‰æ”¯æŒè‡ªå®šä¹‰åç§°
