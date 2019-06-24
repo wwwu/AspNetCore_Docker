@@ -18,6 +18,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "section 3", "section 3", "{
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "section4", "section4", "{C37AD68F-BBA9-4A48-B72D-ADB46F700A65}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.staging.yml = docker-compose.staging.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
